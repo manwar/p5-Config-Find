@@ -1,6 +1,6 @@
 package Config::Find::Win2k;
 
-our $VERSION = '0.01';
+our $VERSION = '0.26';
 
 use strict;
 use warnings;

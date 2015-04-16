@@ -1,8 +1,6 @@
 package Config::Find::Unix;
 
-use 5.006;
-
-our $VERSION = '0.23';
+our $VERSION = '0.26';
 
 use strict;
 use warnings;
