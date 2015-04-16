@@ -6,42 +6,40 @@ use strict;
 use warnings;
 
 use Carp;
-
 use Config::Find;
 our @ISA=@Config::Find::ISA;
-
 
 sub temp_dir {
     my $class = shift;
     my ($name, $more_name, $create, $dn, $scope)=
-	$class->parse_opts(scope=> 'user', @_);
+    $class->parse_opts(scope=> 'user', @_);
 
     $class->create_dir_if( (defined $dn
-			    ? $dn
-			    : $class->_temp_dir($name, $more_name, $scope)),
-			   $create)
+                ? $dn
+                : $class->_temp_dir($name, $more_name, $scope)),
+               $create)
 }
 
 sub var_dir {
     my $class = shift;
     my ($name, $more_name, $create, $dn, $scope)=
-	$class->parse_opts(scope => 'app', @_);
+    $class->parse_opts(scope => 'app', @_);
 
     $class->create_dir_if( (defined $dn
-			    ? $dn
-			    : $class->_var_dir($name, $more_name, $scope) ),
-			   $create)
+                ? $dn
+                : $class->_var_dir($name, $more_name, $scope) ),
+               $create)
 }
 
 sub bin_dir {
     my $class = shift;
     my ($name, $more_name, $create, $dn, $scope)=
-	$class->parse_opts(scope=> 'app', @_);
+    $class->parse_opts(scope=> 'app', @_);
 
     $class->create_dir_if( (defined $dn
-			    ? $dn
-			    : $class->_bin_dir($name, $more_name, $scope) ),
-			   $create);
+                ? $dn
+                : $class->_bin_dir($name, $more_name, $scope) ),
+               $create);
 }
 
 sub lib_dir {
@@ -58,19 +56,19 @@ sub lib_dir {
 sub application_dir {
     my $class=shift;
     my ($name, $more_name, $create, $dn, $scope)=
-	$class->parse_opts(@_);
+    $class->parse_opts(@_);
 
     $class->create_dir_if( (defined $dn
-			    ? $dn
-			    : $class->app_dir($name) ),
-			   $create)
+                ? $dn
+                : $class->app_dir($name) ),
+               $create)
 }
 
 sub create_dir_if {
     my ($class, $dir, $create)=@_;
     # warn ("$class->create_dir($dir, $create)");
     if ($create) {
-	$class->create_dir($dir);
+        $class->create_dir($dir);
     }
     $dir;
 }
@@ -105,34 +103,34 @@ sub parse_opts {
     $create=$opts{create};
 
     if (defined $opts{name}) {
-	$opts{name}=~m{^([^/]*)(?:/(.*))?$}
-	    or croak "invalid name '$opts{name}' specification";
-	$name=$1;
-	$more_name=$2;
+        $opts{name}=~m{^([^/]*)(?:/(.*))?$}
+            or croak "invalid name '$opts{name}' specification";
+        $name=$1;
+        $more_name=$2;
     }
     else {
-	$name=$class->guess_script_name;
+        $name=$class->guess_script_name;
     }
 
     if (defined $opts{scope}) {
-	if ($opts{scope}=~/^u(ser)?$/i) {
-	    $scope='user'
-	}
-	elsif ($opts{scope}=~/^g(lobal)?$/i) {
-	    $scope='global'
-	}
-	elsif ($opts{scope}=~/^a(pp(lication)?)?$/i) {
-	    $scope='app'
-	}
-	elsif ($opts{scope}=~/^p(rocess)?$/i) {
-	    $scope='process'
-	}
-	else {
-	    croak "invalid option scope => '$opts{scope}'";
-	}
+        if ($opts{scope}=~/^u(ser)?$/i) {
+            $scope='user'
+        }
+        elsif ($opts{scope}=~/^g(lobal)?$/i) {
+            $scope='global'
+        }
+        elsif ($opts{scope}=~/^a(pp(lication)?)?$/i) {
+            $scope='app'
+        }
+        elsif ($opts{scope}=~/^p(rocess)?$/i) {
+            $scope='process'
+        }
+        else {
+            croak "invalid option scope => '$opts{scope}'";
+        }
     }
     else {
-	$scope='global';
+        $scope='global';
     }
 
     return ($name, $more_name, $create, $dn, $scope);

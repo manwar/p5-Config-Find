@@ -14,15 +14,15 @@ use IO::File;
 sub _find {
     my ($class, $write, $global, @names)=@_;
     for my $n (@names) {
-	my $fn;
-	if ($n=~/^(.*?)\/(.*)$/) {
-	    my ($dir, $file)=($1, $2);
-	    $fn=$class->look_for_dir_file($dir, $file, $write, $global);
-	}
-	else {
-	    $fn=$class->look_for_file($n, $write, $global);
-	}
-	return $fn if defined $fn;
+        my $fn;
+        if ($n=~/^(.*?)\/(.*)$/) {
+            my ($dir, $file)=($1, $2);
+            $fn=$class->look_for_dir_file($dir, $file, $write, $global);
+        }
+        else {
+            $fn=$class->look_for_file($n, $write, $global);
+        }
+        return $fn if defined $fn;
     }
     return undef;
 }
@@ -30,8 +30,8 @@ sub _find {
 sub _open {
     my ($class, $write, $global, $fn)=@_;
     if ($write) {
-	$class->create_parent_dir($fn);
-	return IO::File->new($fn, 'w');
+        $class->create_parent_dir($fn);
+        return IO::File->new($fn, 'w');
     }
     defined($fn) ? IO::File->new($fn, 'r') : undef;
 }
@@ -40,14 +40,14 @@ sub _install {
     my ($class, $orig, $write, $global, $fn)=@_;
     croak "install mode has to be 'write'" unless $write;
     my $oh=IO::File->new($orig, 'r')
-	or croak "unable to open '$orig'";
+        or croak "unable to open '$orig'";
     my $fh=$class->_open($write, $global, $fn)
-	or croak "unable to create config file '$fn'";
+        or croak "unable to create config file '$fn'";
     while(<$oh>) { $fh->print($_) }
     close $fh
-	or die "unable to write config file '$fn'";
+        or die "unable to write config file '$fn'";
     close $oh
-	or die "unable to read '$orig'";
+        or die "unable to read '$orig'";
     return $fn;
 }
 
@@ -57,19 +57,19 @@ sub _temp_dir {
     my $stemp=$class->system_temp;
 
     if ($scope eq 'global') {
-	$class->my_catdir($stemp, $name, $more_name)
+        $class->my_catdir($stemp, $name, $more_name)
     }
     elsif ($scope eq 'user') {
-	$class->my_catdir($stemp, $class->my_getlogin, $name, $more_name)
+        $class->my_catdir($stemp, $class->my_getlogin, $name, $more_name)
     }
     elsif ($scope eq 'app') {
-	$class->my_catdir($class->app_dir($name), 'tmp', $more_name)
+        $class->my_catdir($class->app_dir($name), 'tmp', $more_name)
     }
     elsif ($scope eq 'process') {
-	$class->my_catdir($stemp, $class->my_getlogin, $name, $$, $more_name)
+        $class->my_catdir($stemp, $class->my_getlogin, $name, $$, $more_name)
     }
     else {
-	croak "scope '$scope' is not valid for temp_dir method";
+        croak "scope '$scope' is not valid for temp_dir method";
     }
 }
 
@@ -77,8 +77,8 @@ sub guess_full_script_name {
     my $path = (File::Spec->splitpath($0))[1];
     if ($path eq '') {
         if (my $script=File::Which::which($0)) {
-	    return File::Spec->rel2abs($script);
-	}
+            return File::Spec->rel2abs($script);
+        }
     }
     return File::Spec->rel2abs($0) if -e $0;
 
@@ -112,15 +112,15 @@ sub create_parent_dir {
     my ($class, $fn)=@_;
     my $parent=$class->parent_dir($fn);
     if (-e $parent) {
-	-d $parent or
-	    croak "'$parent' exists but is not a directory";
-	-W $parent or
-	    croak "not allowed to write on directory '$parent'";
+        -d $parent or
+            croak "'$parent' exists but is not a directory";
+        -W $parent or
+            croak "not allowed to write on directory '$parent'";
     }
     else {
-	$class->create_parent_dir($parent);
-	mkdir $parent or
-	    die "unable to create directory '$parent' ($!)";
+        $class->create_parent_dir($parent);
+        mkdir $parent or
+            die "unable to create directory '$parent' ($!)";
     }
 }
 
@@ -135,12 +135,12 @@ sub parent_dir {
 sub create_dir {
     my ($class, $dir)=@_;
     if (-e $dir) {
-	-d $dir or croak "'$dir' exists but is not a directory";
+        -d $dir or croak "'$dir' exists but is not a directory";
     }
     else {
-	$class->create_parent_dir($dir);
-	mkdir $dir or
-	    die "unable to create directory '$dir' ($!)";
+        $class->create_parent_dir($dir);
+        mkdir $dir or
+            die "unable to create directory '$dir' ($!)";
     }
     $dir;
 }

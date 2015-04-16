@@ -6,11 +6,11 @@ use strict;
 use warnings;
 
 use Carp;
-
 use Config::Find::Any;
-use Win32 qw(CSIDL_LOCAL_APPDATA
-	     CSIDL_APPDATA
-	     CSIDL_DESKTOPDIRECTORY);
+use Win32 qw(
+        CSIDL_LOCAL_APPDATA
+        CSIDL_APPDATA
+        CSIDL_DESKTOPDIRECTORY);
 
 our @ISA = qw(Config::Find::Any);
 
@@ -18,11 +18,11 @@ sub app_dir {
     my ($class, $name)=@_;
 
     $name=$class->guess_script_name
-	unless defined $name;
+    unless defined $name;
 
     my $ename = uc($name).'_HOME';
     if (exists $ENV{$ename}) {
-	return $ENV{$ename}
+        return $ENV{$ename}
     }
     $class->guess_script_dir;
 }
@@ -40,23 +40,19 @@ if (defined $windesktop and $windesktop ne '') {
 sub app_user_dir {
     my ($class, $name)=@_;
     return ( (defined $winlocalappdir) && ($winlocalappdir ne "") ? $winlocalappdir :
-	     (defined $winappdir) && ($winappdir ne "") ? $winappdir :
-	     File::Spec->catdir($class->app_dir($name),
-				'Users',
-				$class->my_getlogin));
+         (defined $winappdir) && ($winappdir ne "") ? $winappdir :
+         File::Spec->catdir($class->app_dir($name),
+                'Users',
+                $class->my_getlogin));
 }
 
 sub system_temp {
     my $class=shift;
 
-    return $ENV{TEMP}
-	if defined $ENV{TEMP};
+    return $ENV{TEMP}   if defined $ENV{TEMP};
+    return $ENV{TMP}    if defined $ENV{TMP};
 
-    return $ENV{TMP}
-	if defined $ENV{TMP};
-
-    return File::Spec->catfile($ENV{windir}, 'Temp')
-	if defined $ENV{windir};
+    return File::Spec->catfile($ENV{windir}, 'Temp')    if defined $ENV{windir};
 
     return 'C:\Temp';
 }
@@ -64,34 +60,33 @@ sub system_temp {
 sub _var_dir {
     my ($class, $name, $more_name, $scope)=@_;
     if ($scope eq 'user') {
-	File::Spec->catdir($class->app_user_dir($name), $name, 'Data', $more_name)
+        File::Spec->catdir($class->app_user_dir($name), $name, 'Data', $more_name)
     }
     else {
-	File::Spec->catdir($class->app_dir($name), 'Data', $more_name);
+        File::Spec->catdir($class->app_dir($name), 'Data', $more_name);
     }
 }
 
 sub _bin_dir {
     my ($class, $name, $more_name, $scope)=@_;
     if ($scope eq 'app') {
-	$class->app_dir($name);
+        $class->app_dir($name);
     }
     else {
-	die "unimplemented option scope => $scope";
+        die "unimplemented option scope => $scope";
     }
 }
 
 sub look_for_helper {
-
     my ($class, $dir, $helper)=@_;
 
     my @ext=('', ( defined $ENV{PATHEXT}
-		   ? (split /;/, $ENV{PATHEXT})
-		   : qw(.COM .EXE .BAT .CMD)));
+           ? (split /;/, $ENV{PATHEXT})
+           : qw(.COM .EXE .BAT .CMD)));
 
     for my $ext (@ext) {
-	my $path=File::Spec->catfile($dir, $helper.$ext);
-	-e $path and -x $path and return $path;
+        my $path=File::Spec->catfile($dir, $helper.$ext);
+        -e $path and -x $path and return $path;
     }
     croak "helper '$helper' not found";
 }
@@ -101,22 +96,22 @@ sub look_for_file {
     my $fn;
     my $fnwe=$class->add_extension($name, 'cfg');
     if ($write) {
-	if ($global) {
-	    return File::Spec->catfile($class->app_dir($name), $fnwe)
-	}
-	else {
-	    # my $login=getlogin();
-	    return File::Spec->catfile($class->app_user_dir($name),
-				       $fnwe );
-	}
+        if ($global) {
+            return File::Spec->catfile($class->app_dir($name), $fnwe)
+        }
+        else {
+            # my $login=getlogin();
+            return File::Spec->catfile($class->app_user_dir($name),
+                           $fnwe );
+        }
     }
     else {
-	unless ($global) {
-	    $fn=File::Spec->catfile($class->app_user_dir, $fnwe );
-	    return $fn if -f $fn;
-	}
-	$fn=File::Spec->catfile($class->app_dir($name), $fnwe);
-	return $fn if -f $fn;
+        unless ($global) {
+            $fn=File::Spec->catfile($class->app_user_dir, $fnwe );
+            return $fn if -f $fn;
+        }
+        $fn=File::Spec->catfile($class->app_dir($name), $fnwe);
+        return $fn if -f $fn;
     }
     return undef;
 }
@@ -126,24 +121,21 @@ sub look_for_dir_file {
     my $fn;
     my $fnwe=$class->add_extension($name, 'cfg');
     if ($write) {
-	if ($global) {
-	    return File::Spec->catfile($class->app_dir($dir), $dir, $fnwe)
-	}
-	else {
-	    # my $login=getlogin();
-	    return File::Spec->catfile($class->app_user_dir($dir),
-				       $dir, $fnwe );
-	}
+        if ($global) {
+            return File::Spec->catfile($class->app_dir($dir), $dir, $fnwe)
+        }
+        else {
+            # my $login=getlogin();
+            return File::Spec->catfile($class->app_user_dir($dir), $dir, $fnwe );
+        }
     }
     else {
-	unless ($global) {
-	    $fn=File::Spec->catfile($class->app_user_dir($name),
-				    $dir, $fnwe );
-	    return $fn if -f $fn;
-	}
-	$fn=File::Spec->catfile($class->app_dir($name),
-				$fnwe);
-	return $fn if -f $fn;
+        unless ($global) {
+            $fn=File::Spec->catfile($class->app_user_dir($name), $dir, $fnwe );
+            return $fn if -f $fn;
+        }
+        $fn=File::Spec->catfile($class->app_dir($name), $fnwe);
+        return $fn if -f $fn;
     }
     return undef;
 }
