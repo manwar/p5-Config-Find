@@ -5,6 +5,7 @@ Revision history for Config::Find.
         - added Win7.pm. (RT#57625)
         - change file dates changed to meet W3CDTF standards.
         - updated module versions to be consistent for the distribution.
+        - added META.json & updated META.yml.
 
 0.26    2008-11-24
         - remove warning from File::Spec

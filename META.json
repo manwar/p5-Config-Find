@@ -1,0 +1,115 @@
+{
+    "name" : "Config-Find",
+    "version": "0.26",
+    "abstract": "Find configuration files in the native OS fashion",
+    "author": [
+      "Salvador Fandino <sfandino@yahoo.com>"
+    ],
+
+    "license": [ "artistic_2" ],
+    "dynamic_config" : 0,
+    "release_status" : "stable",
+    "meta-spec": {
+        "version": "2",
+        "url": "http://search.cpan.org/dist/CPAN-Meta/lib/CPAN/Meta/Spec.pm"
+    },
+    "generated_by": "Hand",
+    "keywords" : [
+        "configuration"
+    ],
+
+    "prereqs" : {
+        "runtime" : {
+            "requires" : {
+                "perl": "5.006",
+                "File::HomeDir" : "0",
+                "File::Spec" : "0",
+                "File::Which" : "0"
+            }
+        },
+        "test" : {
+            "requires": {
+                "IO::File": "0",
+                "Test::More": "0.70"
+            },
+            "recommends": {
+                "Test::CPAN::Meta": "0",
+                "Test::CPAN::Meta::JSON": "0",
+                "Test::Pod": "1.00",
+                "Test::Pod::Coverage": "0.08"
+            }
+        }
+    },
+
+    "provides": {
+        "Config::Find": {
+            "file": "lib/Config/Find.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Any": {
+            "file": "lib/Config/Find/Any.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Unix": {
+            "file": "lib/Config/Find/Unix.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Where": {
+            "file": "lib/Config/Find/Where.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Win2k": {
+            "file": "lib/Config/Find/Win2k.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Win2k3": {
+            "file": "lib/Config/Find/Win2k3.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Win7": {
+            "file": "lib/Config/Find/Win7.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Win95": {
+            "file": "lib/Config/Find/Win95.pm",
+            "version": "0.26"
+        },
+        "Config::Find::Win98": {
+            "file": "lib/Config/Find/Win98.pm",
+            "version": "0.26"
+        },
+        "Config::Find::WinAny": {
+            "file": "lib/Config/Find/WinAny.pm",
+            "version": "0.26"
+        },
+        "Config::Find::WinCE": {
+            "file": "lib/Config/Find/WinCE.pm",
+            "version": "0.26"
+        },
+        "Config::Find::WinME": {
+            "file": "lib/Config/Find/WinME.pm",
+            "version": "0.26"
+        },
+        "Config::Find::WinNT": {
+            "file": "lib/Config/Find/WinNT.pm",
+            "version": "0.26"
+        },
+        "Config::Find::WinXP": {
+            "file": "lib/Config/Find/WinXP.pm",
+            "version": "0.26"
+        }
+    },
+    "no_index": {
+        "directory": ["t"]
+    },
+
+    "resources": {
+        "license": [ "http://www.perlfoundation.org/artistic_license_2_0" ],
+        "bugtracker": { "web": "http://rt.cpan.org/Public/Dist/Display.html?Name=Config-Find" },
+        "repository": {
+            "url": "git://github.com/salva/p5-Config-Find.git",
+            "web": "https://github.com/salva/p5-Config-Find",
+            "type": "git"
+        }
+    }
+}

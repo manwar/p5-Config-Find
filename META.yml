@@ -1,16 +1,82 @@
 --- #YAML:1.0
 name:                Config-Find
 version:             0.26
-abstract:            ~
-license:             ~
-author:              
-    - Salvador Fandino <sfandino@yahoo.com>
-generated_by:        ExtUtils::MakeMaker version 6.42
+abstract:            Find configuration files in the native OS fashion
+license:             artistic_2
 distribution_type:   module
-requires:     
-    File::HomeDir:                 0
-    File::Spec:                    0
-    File::Which:                   0
+installdirs:         site
+
+author:
+    - Salvador Fandino <sfandino@yahoo.com>
+
+requires:
+  perl:                   5.006
+  File::HomeDir:          0
+  File::Spec:             0
+  File::Which:            0
+recommends:
+  Test::CPAN::Meta:       0
+  Test::CPAN::Meta::JSON: 0
+  Test::Pod:              1.00
+  Test::Pod::Coverage:    0.08
+build_requires:
+  Test::More:             0.70
+  IO::File:               0
+
+provides:
+  Config::Find:
+    file:     lib/Config/Find.pm
+    version:  0.26
+  Config::Find::Any:
+    file:     lib/Config/Find/Any.pm
+    version:  0.26
+  Config::Find::Unix:
+    file:     lib/Config/Find/Unix.pm
+    version:  0.26
+  Config::Find::Where:
+    file:     lib/Config/Find/Where.pm
+    version:  0.26
+  Config::Find::Win2k:
+    file:     lib/Config/Find/Win2k.pm
+    version:  0.26
+  Config::Find::Win2k3:
+    file:     lib/Config/Find/Win2k3.pm
+    version:  0.26
+  Config::Find::Win7:
+    file:     lib/Config/Find/Win7.pm
+    version:  0.26
+  Config::Find::Win95:
+    file:     lib/Config/Find/Win95.pm
+    version:  0.26
+  Config::Find::Win98:
+    file:     lib/Config/Find/Win98.pm
+    version:  0.26
+  Config::Find::WinAny:
+    file:     lib/Config/Find/WinAny.pm
+    version:  0.26
+  Config::Find::WinCE:
+    file:     lib/Config/Find/WinCE.pm
+    version:  0.26
+  Config::Find::WinME:
+    file:     lib/Config/Find/WinME.pm
+    version:  0.26
+  Config::Find::WinNT:
+    file:     lib/Config/Find/WinNT.pm
+    version:  0.26
+  Config::Find::WinXP:
+    file:     lib/Config/Find/WinXP.pm
+    version:  0.26
+
+no_index:
+  directory:
+    - t
+
+resources:
+  license:    http://www.perlfoundation.org/artistic_license_2_0
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Config-Find
+  repository: https://github.com/salva/p5-Config-Find
+
 meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
-    version: 1.3
+   version:   1.4
+   url:       http://module-build.sourceforge.net/META-spec-v1.4.html
+generated_by: Hand

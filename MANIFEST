@@ -15,8 +15,10 @@ lib/Config/Find/WinNT.pm
 lib/Config/Find/WinXP.pm
 Makefile.PL
 MANIFEST
+META.json
+META.yml
 README
 t/1.t
 t/2_where.t
 t/3_pods.t
-META.yml                                 Module meta-data (added by MakeMaker)
+
