@@ -21,9 +21,7 @@ sub app_dir {
     unless defined $name;
 
     my $ename = uc($name).'_HOME';
-    if (exists $ENV{$ename}) {
-        return $ENV{$ename}
-    }
+    return $ENV{$ename} if (exists $ENV{$ename});
     $class->guess_script_dir;
 }
 
@@ -205,11 +203,11 @@ L<Config::Find>, L<Config::Find::Any>
 
 =head1 AUTHOR
 
-Salvador Fandiño, E<lt>sfandino@yahoo.comE<gt>
+Salvador Fandiño García, E<lt>sfandino@yahoo.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003 by Salvador Fandiño
+Copyright 2003-2015 by Salvador Fandiño García (sfandino@yahoo.com)
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
