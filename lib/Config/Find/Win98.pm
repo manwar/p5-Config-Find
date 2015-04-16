@@ -31,12 +31,9 @@ Implements Win98 specific features for Config::Find
 
 Stub documentation for Config::Find::Win98, created by h2xs.
 
-
 =head2 EXPORT
 
 None by default.
-
-
 
 =head1 SEE ALSO
 

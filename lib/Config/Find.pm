@@ -159,13 +159,13 @@ Config::Find - Find configuration files in the native OS fashion
 
 =head1 ABSTRACT
 
-Config::Find searchs for configuration files using OS dependant
+Config::Find searches for configuration files using OS dependant
 heuristics.
 
 =head1 DESCRIPTION
 
 Every OS has different rules for configuration files placement, this
-module allows to easily find and create your app configuration files
+module allows one to easily find and create your app configuration files
 following those rules.
 
 Config::Find references configuration files by the application name or

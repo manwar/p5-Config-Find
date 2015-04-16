@@ -1,5 +1,8 @@
 Revision history for Perl extension Config::Find.
 
+        - added POD UTF8 encoding directives. (RT#78944)
+        - fixed minor typos. (RT#82001)
+
 0.26  Nov 24, 2008
         - remove warning from File::Spec
 

@@ -31,12 +31,9 @@ Implements Win2k specific features for Config::Find
 
 Stub documentation for Config::Find::Win2k, created by h2xs.
 
-
 =head2 EXPORT
 
 None by default.
-
-
 
 =head1 SEE ALSO
 

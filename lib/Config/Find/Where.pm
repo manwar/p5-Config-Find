@@ -159,10 +159,9 @@ Config::Find::Where - Find locations in the native OS fashion
   my $path=Config::Find::Where->bin_dir( scope => 'app' );
   system $path."/app_helper.exe";
 
-
 =head1 ABSTRACT
 
-Config::Find searchs for locations using OS dependant heuristics.
+Config::Find searches for locations using OS dependant heuristics.
 
 =head1 DESCRIPTION
 
@@ -170,7 +169,7 @@ After releasing L<Config::Find> I found much of its code could be
 reused to also find other interesting things like temporary
 directories, the script location, etc.
 
-This module adds a public API to all the hiden functionallity.
+This module adds a public API to all the hidden functionality.
 
 =head2 OPTIONS
 
@@ -221,7 +220,6 @@ on some Windows ones ('jacks' is supposed to be the current user name
 and '974' the process number).
 
 The default scope for this method is C<user>.
-
 
 =item $path=Config::Find::Where-E<gt>bin_dir(%opts)
 
@@ -280,11 +278,9 @@ recursively creates all the non existant parent dirs for C<$file>.
 
 =back
 
-
 =head2 EXPORT
 
 None, this module has an OO interface.
-
 
 =head1 BUGS
 
@@ -294,11 +290,9 @@ modes, but hey, this is a work in progress!!!
 Contributions, bug reports, feedback and any kind of comments are
 welcome.
 
-
 =head1 SEE ALSO
 
 L<Config::Find>
-
 
 =head1 COPYRIGHT AND LICENSE
 

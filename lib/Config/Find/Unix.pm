@@ -241,7 +241,6 @@ it does
 
 instead.
 
-
 When the "several configuration files in one directory" aproach is
 used, the order is somewhat different:
 
@@ -251,7 +250,6 @@ used, the order is somewhat different:
   4  /etc/$dir/$name.conf                      [global]
 
 (also affected by C<$ENV{${name}_HOME}>)
-
 
 =head2 EXPORT
 
