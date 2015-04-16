@@ -6,6 +6,7 @@ Revision history for Config::Find.
         - change file dates changed to meet W3CDTF standards.
         - updated module versions to be consistent for the distribution.
         - added META.json & updated META.yml.
+        - added META and changefile tests.
 
 0.26    2008-11-24
         - remove warning from File::Spec
