@@ -17,7 +17,7 @@ WriteMakefile(
         # prereqs
         'File::Which'       => 0,
         'File::Spec'        => 0,
-        'File::HomeDir'     => 0 
+        'File::HomeDir'     => 0,
 
         # build/test prereqs
         'Test::More'        => '0.70',

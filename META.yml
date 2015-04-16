@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Config-Find
-version:             0.26
+version:             0.27
 abstract:            Find configuration files in the native OS fashion
 license:             artistic_2
 distribution_type:   module
@@ -26,46 +26,46 @@ build_requires:
 provides:
   Config::Find:
     file:     lib/Config/Find.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Any:
     file:     lib/Config/Find/Any.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Unix:
     file:     lib/Config/Find/Unix.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Where:
     file:     lib/Config/Find/Where.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Win2k:
     file:     lib/Config/Find/Win2k.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Win2k3:
     file:     lib/Config/Find/Win2k3.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Win7:
     file:     lib/Config/Find/Win7.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Win95:
     file:     lib/Config/Find/Win95.pm
-    version:  0.26
+    version:  0.27
   Config::Find::Win98:
     file:     lib/Config/Find/Win98.pm
-    version:  0.26
+    version:  0.27
   Config::Find::WinAny:
     file:     lib/Config/Find/WinAny.pm
-    version:  0.26
+    version:  0.27
   Config::Find::WinCE:
     file:     lib/Config/Find/WinCE.pm
-    version:  0.26
+    version:  0.27
   Config::Find::WinME:
     file:     lib/Config/Find/WinME.pm
-    version:  0.26
+    version:  0.27
   Config::Find::WinNT:
     file:     lib/Config/Find/WinNT.pm
-    version:  0.26
+    version:  0.27
   Config::Find::WinXP:
     file:     lib/Config/Find/WinXP.pm
-    version:  0.26
+    version:  0.27
 
 no_index:
   directory:

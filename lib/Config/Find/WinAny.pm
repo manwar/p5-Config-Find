@@ -1,6 +1,6 @@
 package Config::Find::WinAny;
 
-our $VERSION = '0.26';
+our $VERSION = '0.27';
 
 use strict;
 use warnings;
