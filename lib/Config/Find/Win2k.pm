@@ -20,7 +20,7 @@ Config::Find::Win2k - Win2k idiosyncrasies for Config::Find
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::Win2k;
+  # don't use Config::Find::Win2k directly
   use Config::Find;
 
 =head1 ABSTRACT
@@ -29,11 +29,8 @@ Implements Win2k specific features for Config::Find
 
 =head1 DESCRIPTION
 
-Stub documentation for Config::Find::Win2k, created by h2xs.
-
-=head2 EXPORT
-
-None by default.
+Contains any idiosyncrasies found within Win2k, that do not apply to the 
+standard Win32 base.
 
 =head1 SEE ALSO
 

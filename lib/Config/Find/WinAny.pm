@@ -148,7 +148,7 @@ Config::Find::WinAny - Behaviours common to any Win32 OS for Config::Find
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::WinAny;
+  # don't use Config::Find::WinAny directly
   use Config::Find;
 
 =head1 ABSTRACT
@@ -198,10 +198,6 @@ It seems that, sometimes, ${LOCAL_APPDATA} points to the user desktop
 and placing configuration files there would be obviusly wrong. As a
 work around, the module will ignore ${LOCAL_APPDATA} or ${APPDATA} if
 they point to any place below the desktop path.
-
-=head2 EXPORT
-
-None by default.
 
 =head1 SEE ALSO
 

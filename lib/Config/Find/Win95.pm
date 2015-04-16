@@ -20,7 +20,7 @@ Config::Find::Win95 - Win95 idiosyncrasies for Config::Find
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::Win95;
+  # don't use Config::Find::Win95 directly
   use Config::Find;
 
 =head1 ABSTRACT
@@ -29,11 +29,8 @@ Implements Win95 specific features for Config::Find
 
 =head1 DESCRIPTION
 
-Stub documentation for Config::Find::Win95, created by h2xs.
-
-=head2 EXPORT
-
-None by default.
+Contains any idiosyncrasies found within Win95, that do not apply to the 
+standard Win32 base.
 
 =head1 SEE ALSO
 

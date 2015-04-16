@@ -201,7 +201,7 @@ Config::Find::Unix - Config::Find plugin for Unixen
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::Unix;
+  # don't use Config::Find::Unix directly
   use Config::Find;
 
 =head1 ABSTRACT

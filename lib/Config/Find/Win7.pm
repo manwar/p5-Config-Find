@@ -20,7 +20,7 @@ Config::Find::Win7 - Win7 idiosyncrasies for Config::Find
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::Win7
+  # don't use Config::Find::Win7 directly
   use Config::Find;
 
 =head1 ABSTRACT
@@ -29,11 +29,8 @@ Implements Win7 specific features for Config::Find
 
 =head1 DESCRIPTION
 
-Stub documentation for Config::Find::Win7, created by h2xs.
-
-=head2 EXPORT
-
-None by default.
+Contains any idiosyncrasies found within Win7, that do not apply to the 
+standard Win32 base.
 
 =head1 SEE ALSO
 

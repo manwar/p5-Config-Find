@@ -10,6 +10,7 @@ use Config::Find::WinAny
 our @ISA = qw(Config::Find::WinAny);
 
 1;
+
 __END__
 
 =encoding utf-8
@@ -20,7 +21,7 @@ Config::Find::WinME - WinME idiosyncrasies for Config::Find
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::WinME;
+  # don't use Config::Find::WinME directly
   use Config::Find;
 
 =head1 ABSTRACT
@@ -29,11 +30,8 @@ Implements WinME specific features for Config::Find
 
 =head1 DESCRIPTION
 
-Stub documentation for Config::Find::WinME, created by h2xs.
-
-=head2 EXPORT
-
-None by default.
+Contains any idiosyncrasies found within WinME, that do not apply to the 
+standard Win32 base.
 
 =head1 SEE ALSO
 

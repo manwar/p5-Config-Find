@@ -10,6 +10,7 @@ use Config::Find::WinAny
 our @ISA = qw(Config::Find::WinAny);
 
 1;
+
 __END__
 
 =encoding utf-8
@@ -20,7 +21,7 @@ Config::Find::Win98 - Win98 idiosyncrasies for Config::Find
 
 =head1 SYNOPSIS
 
-  # don't use Config::Find::Win98;
+  # don't use Config::Find::Win98 directly
   use Config::Find;
 
 =head1 ABSTRACT
@@ -29,11 +30,8 @@ Implements Win98 specific features for Config::Find
 
 =head1 DESCRIPTION
 
-Stub documentation for Config::Find::Win98, created by h2xs.
-
-=head2 EXPORT
-
-None by default.
+Contains any idiosyncrasies found within Win98, that do not apply to the 
+standard Win32 base.
 
 =head1 SEE ALSO
 
