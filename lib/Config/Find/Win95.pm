@@ -12,6 +12,8 @@ our @ISA = qw(Config::Find::WinAny);
 1;
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Config::Find::Win95 - Win95 idiosyncrasies for Config::Find

@@ -177,6 +177,8 @@ sub my_getlogin {
 
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Config::Find::Any - Perl base class for Config::Find

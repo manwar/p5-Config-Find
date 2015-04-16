@@ -138,6 +138,12 @@ sub parse_opts {
     return ($name, $more_name, $create, $dn, $scope);
 }
 
+1;
+
+__END__
+
+=encoding utf-8
+
 =head1 NAME
 
 Config::Find::Where - Find locations in the native OS fashion

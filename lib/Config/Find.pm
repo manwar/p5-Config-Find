@@ -126,6 +126,8 @@ sub parse_opts {
 1;
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Config::Find - Find configuration files in the native OS fashion
