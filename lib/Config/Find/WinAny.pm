@@ -151,6 +151,8 @@ sub look_for_dir_file {
 1;
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Config::Find::WinAny - Behaviours common to any Win32 OS for Config::Find
