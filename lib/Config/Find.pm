@@ -38,6 +38,9 @@ BEGIN {
         } elsif ($OS=~/^WINCE/) {
             require Config::Find::WinCE;
             @ISA=qw(Config::Find::WinCE);
+        } elsif ($OS=~/^WIN7/) {
+            require Config::Find::Win7;
+            @ISA=qw(Config::Find::Win7);
         } else {
             croak "Unknow MSWin32 OS '$OS'";
         }
