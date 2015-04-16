@@ -18,9 +18,8 @@ MANIFEST
 META.json
 META.yml
 README
-t/1.t
-t/2_where.t
-t/3_pods.t
+t/01load.t
+t/90podtest.t
 t/94metatest.t
 t/95changedate.t
 t/96metatest.t
