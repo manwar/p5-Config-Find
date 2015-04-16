@@ -19,18 +19,19 @@ sub app_dir {
     unless defined $name;
 
     my $ename = uc($name).'_HOME';
-    if (exists $ENV{$ename}) {
-        return $ENV{$ename}
-    }
+    return $ENV{$ename}     if (exists $ENV{$ename});
+
     $class->parent_dir($class->guess_script_dir);
 }
 
 sub _my_home {
     my $home = File::HomeDir->my_home;
-    return $home if defined $home;
+    return $home            if defined $home;
+
     my ($user, $dir) = (getpwuid $>)[0, 7];
-    return $dir if defined $dir;
-    return "/home/$user" if defined $user;
+
+    return $dir             if defined $dir;
+    return "/home/$user"    if defined $user;
     return "/"
 };
 
@@ -41,46 +42,39 @@ sub _var_dir {
 
     if ($scope eq 'global') {
         $class->my_catfile('/var', $name, $more_name);
-    }
-    elsif ($scope eq 'user') {
+    } elsif ($scope eq 'user') {
         File::Spec->catfile(_my_home(), '.'.$name, 'var', $more_name);
-    }
-    elsif ($scope eq 'app') {
+    } elsif ($scope eq 'app') {
         $class->my_catfile($class->app_dir($name), 'var', $more_name);
-    }
-    else {
+    } else {
         croak "scope '$scope' is not valid for var_dir method";
     }
 }
 
 sub _bin_dir {
     my ($class, $name, $more_name, $scope) = @_;
+    
     if ($scope eq 'global') {
         '/usr/bin';
-    }
-    elsif ($scope eq 'user') {
+    } elsif ($scope eq 'user') {
         File::Spec->catfile(_my_home(), 'bin');
-    }
-    elsif ($scope eq 'app') {
+    } elsif ($scope eq 'app') {
         File::Spec->catfile($class->app_dir($name), 'bin');
-    }
-    else {
+    } else {
         croak "scope '$scope' is not valid for bin_dir method";
     }
 }
 
 sub _lib_dir {
     my ($class, $name, $more_name, $scope) = @_;
+    
     if ($scope eq 'global') {
         '/usr/lib';
-    }
-    elsif ($scope eq 'user') {
+    } elsif ($scope eq 'user') {
         File::Spec->catfile(_my_home(), 'lib');
-    }
-    elsif ($scope eq 'app') {
+    } elsif ($scope eq 'app') {
         File::Spec->catfile($class->app_dir($name), 'lib');
-    }
-    else {
+    } else {
         croak "scope '$scope' is not valid for lib_dir method";
     }
 }
@@ -88,6 +82,7 @@ sub _lib_dir {
 sub look_for_file {
     my ($class, $name, $write, $global)=@_;
     my $fn;
+    
     if ($write) {
         if ($global) {
             my $fnwe=$class->add_extension($name, 'conf');
@@ -102,18 +97,17 @@ sub look_for_file {
 
             return File::Spec->catfile('/etc', $fnwe);
         }
-        else {
-            return File::Spec->catfile(_my_home(), ".$name");
-        }
-    }
-    else {
+
+        return File::Spec->catfile(_my_home(), ".$name");
+
+    } else {
 
         # looks in ~/.whatever
         unless ($global) {
             $fn=File::Spec->catfile(_my_home(), ".$name");
             return $fn if -f $fn;
             for my $ext (qw(conf cfg)) {
-            return "$fn.$ext" if -f "$fn.$ext";
+                return "$fn.$ext" if -f "$fn.$ext";
             }
         }
 
@@ -133,22 +127,24 @@ sub look_for_file {
             return $fn if -f $fn;
         }
     }
-    return undef;
+    
+    return;
 }
 
 sub look_for_helper {
     my ($class, $dir, $helper)=@_;
     my $path=File::Spec->catfile($dir, $helper);
-    -e $path or
-        croak "helper '$helper' not found";
-    ((-f $path or -l $path) and -x $path)  or
-        croak "helper '$helper' found at '$path' but it is not executable";
+    -e $path
+        or croak "helper '$helper' not found";
+    ((-f $path or -l $path) and -x $path)
+        or croak "helper '$helper' found at '$path' but it is not executable";
     return $path
 }
 
 sub look_for_dir_file {
     my ($class, $dir, $name, $write, $global)=@_;
     my $fn;
+
     if ($write) {
         my $fnwe=$class->add_extension($name, 'conf');
         if ($global) {
@@ -162,11 +158,10 @@ sub look_for_dir_file {
 
             return File::Spec->catfile('/etc', $dir, $fnwe);
         }
-        else {
-            return File::Spec->catfile(_my_home(), ".$dir", $fnwe);
-        }
-    }
-    else {
+
+        return File::Spec->catfile(_my_home(), ".$dir", $fnwe);
+
+    } else {
         # looks in ~/.whatever
         for my $fnwe (map {$class->add_extension($name, $_)} qw(conf cfg)) {
 
@@ -190,10 +185,12 @@ sub look_for_dir_file {
             return $fn if -f $fn;
         }
     }
-    return undef;
+
+    return;
 }
 
 1;
+
 __END__
 
 =encoding utf-8

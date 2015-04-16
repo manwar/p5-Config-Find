@@ -33,8 +33,8 @@ my $winappdir=Win32::GetFolderPath(CSIDL_APPDATA);
 my $windesktop=Win32::GetFolderPath(CSIDL_DESKTOPDIRECTORY);
 
 if (defined $windesktop and $windesktop ne '') {
-    undef $winlocalappdir if (defined($winlocalappdir) and index($winlocalappdir, $windesktop) == 0);
-    undef $winappdir if (defined($winappdir) and index($winappdir, $windesktop) == 0);
+    undef $winlocalappdir   if (defined($winlocalappdir) and index($winlocalappdir, $windesktop) == 0);
+    undef $winappdir        if (defined($winappdir)      and index($winappdir, $windesktop) == 0);
 }
 
 sub app_user_dir {
@@ -61,8 +61,7 @@ sub _var_dir {
     my ($class, $name, $more_name, $scope)=@_;
     if ($scope eq 'user') {
         File::Spec->catdir($class->app_user_dir($name), $name, 'Data', $more_name)
-    }
-    else {
+    } else {
         File::Spec->catdir($class->app_dir($name), 'Data', $more_name);
     }
 }
@@ -71,8 +70,7 @@ sub _bin_dir {
     my ($class, $name, $more_name, $scope)=@_;
     if ($scope eq 'app') {
         $class->app_dir($name);
-    }
-    else {
+    } else {
         die "unimplemented option scope => $scope";
     }
 }
@@ -88,6 +86,7 @@ sub look_for_helper {
         my $path=File::Spec->catfile($dir, $helper.$ext);
         -e $path and -x $path and return $path;
     }
+
     croak "helper '$helper' not found";
 }
 
@@ -95,41 +94,37 @@ sub look_for_file {
     my ($class, $name, $write, $global)=@_;
     my $fn;
     my $fnwe=$class->add_extension($name, 'cfg');
+    
     if ($write) {
-        if ($global) {
-            return File::Spec->catfile($class->app_dir($name), $fnwe)
-        }
-        else {
-            # my $login=getlogin();
-            return File::Spec->catfile($class->app_user_dir($name),
-                           $fnwe );
-        }
-    }
-    else {
+        return File::Spec->catfile($class->app_dir($name), $fnwe)   if ($global);
+        # my $login=getlogin();
+        return File::Spec->catfile($class->app_user_dir($name), $fnwe );
+
+    } else {
         unless ($global) {
             $fn=File::Spec->catfile($class->app_user_dir, $fnwe );
             return $fn if -f $fn;
         }
+
         $fn=File::Spec->catfile($class->app_dir($name), $fnwe);
         return $fn if -f $fn;
     }
-    return undef;
+    
+    return;
 }
 
 sub look_for_dir_file {
     my ($class, $dir, $name, $write, $global)=@_;
     my $fn;
     my $fnwe=$class->add_extension($name, 'cfg');
+    
     if ($write) {
-        if ($global) {
-            return File::Spec->catfile($class->app_dir($dir), $dir, $fnwe)
-        }
-        else {
-            # my $login=getlogin();
-            return File::Spec->catfile($class->app_user_dir($dir), $dir, $fnwe );
-        }
-    }
-    else {
+        return File::Spec->catfile($class->app_dir($dir), $dir, $fnwe)  if ($global);
+
+        # my $login=getlogin();
+        return File::Spec->catfile($class->app_user_dir($dir), $dir, $fnwe );
+
+    } else {
         unless ($global) {
             $fn=File::Spec->catfile($class->app_user_dir($name), $dir, $fnwe );
             return $fn if -f $fn;
@@ -137,10 +132,12 @@ sub look_for_dir_file {
         $fn=File::Spec->catfile($class->app_dir($name), $fnwe);
         return $fn if -f $fn;
     }
-    return undef;
+
+    return;
 }
 
 1;
+
 __END__
 
 =encoding utf-8

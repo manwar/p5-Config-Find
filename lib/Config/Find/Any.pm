@@ -10,40 +10,45 @@ use File::Spec;
 use File::Which;
 use IO::File;
 
-
 sub _find {
     my ($class, $write, $global, @names)=@_;
+    
     for my $n (@names) {
         my $fn;
         if ($n=~/^(.*?)\/(.*)$/) {
             my ($dir, $file)=($1, $2);
             $fn=$class->look_for_dir_file($dir, $file, $write, $global);
-        }
-        else {
+        } else {
             $fn=$class->look_for_file($n, $write, $global);
         }
         return $fn if defined $fn;
     }
-    return undef;
+
+    return;
 }
 
 sub _open {
     my ($class, $write, $global, $fn)=@_;
+    
     if ($write) {
         $class->create_parent_dir($fn);
         return IO::File->new($fn, 'w');
     }
+
     defined($fn) ? IO::File->new($fn, 'r') : undef;
 }
 
 sub _install {
     my ($class, $orig, $write, $global, $fn)=@_;
     croak "install mode has to be 'write'" unless $write;
+
     my $oh=IO::File->new($orig, 'r')
         or croak "unable to open '$orig'";
     my $fh=$class->_open($write, $global, $fn)
         or croak "unable to create config file '$fn'";
+    
     while(<$oh>) { $fh->print($_) }
+    
     close $fh
         or die "unable to write config file '$fn'";
     close $oh
@@ -58,17 +63,13 @@ sub _temp_dir {
 
     if ($scope eq 'global') {
         $class->my_catdir($stemp, $name, $more_name)
-    }
-    elsif ($scope eq 'user') {
+    } elsif ($scope eq 'user') {
         $class->my_catdir($stemp, $class->my_getlogin, $name, $more_name)
-    }
-    elsif ($scope eq 'app') {
+    } elsif ($scope eq 'app') {
         $class->my_catdir($class->app_dir($name), 'tmp', $more_name)
-    }
-    elsif ($scope eq 'process') {
+    } elsif ($scope eq 'process') {
         $class->my_catdir($stemp, $class->my_getlogin, $name, $$, $more_name)
-    }
-    else {
+    } else {
         croak "scope '$scope' is not valid for temp_dir method";
     }
 }
@@ -76,10 +77,11 @@ sub _temp_dir {
 sub guess_full_script_name {
     my $path = (File::Spec->splitpath($0))[1];
     if ($path eq '') {
-        if (my $script=File::Which::which($0)) {
+        if (my $script = File::Which::which($0)) {
             return File::Spec->rel2abs($script);
         }
     }
+
     return File::Spec->rel2abs($0) if -e $0;
 
     carp "unable to determine script '$0' location";
@@ -112,15 +114,14 @@ sub create_parent_dir {
     my ($class, $fn)=@_;
     my $parent=$class->parent_dir($fn);
     if (-e $parent) {
-        -d $parent or
-            croak "'$parent' exists but is not a directory";
-        -W $parent or
-            croak "not allowed to write on directory '$parent'";
-    }
-    else {
+        -d $parent
+            or croak "'$parent' exists but is not a directory";
+        -W $parent
+            or croak "not allowed to write on directory '$parent'";
+    } else {
         $class->create_parent_dir($parent);
-        mkdir $parent or
-            die "unable to create directory '$parent' ($!)";
+        mkdir $parent
+            or die "unable to create directory '$parent' ($!)";
     }
 }
 
@@ -136,11 +137,10 @@ sub create_dir {
     my ($class, $dir)=@_;
     if (-e $dir) {
         -d $dir or croak "'$dir' exists but is not a directory";
-    }
-    else {
+    } else {
         $class->create_parent_dir($dir);
-        mkdir $dir or
-            die "unable to create directory '$dir' ($!)";
+        mkdir $dir
+            or die "unable to create directory '$dir' ($!)";
     }
     $dir;
 }

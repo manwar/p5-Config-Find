@@ -107,29 +107,23 @@ sub parse_opts {
             or croak "invalid name '$opts{name}' specification";
         $name=$1;
         $more_name=$2;
-    }
-    else {
+    } else {
         $name=$class->guess_script_name;
     }
 
     if (defined $opts{scope}) {
         if ($opts{scope}=~/^u(ser)?$/i) {
             $scope='user'
-        }
-        elsif ($opts{scope}=~/^g(lobal)?$/i) {
+        } elsif ($opts{scope}=~/^g(lobal)?$/i) {
             $scope='global'
-        }
-        elsif ($opts{scope}=~/^a(pp(lication)?)?$/i) {
+        } elsif ($opts{scope}=~/^a(pp(lication)?)?$/i) {
             $scope='app'
-        }
-        elsif ($opts{scope}=~/^p(rocess)?$/i) {
+        } elsif ($opts{scope}=~/^p(rocess)?$/i) {
             $scope='process'
-        }
-        else {
+        } else {
             croak "invalid option scope => '$opts{scope}'";
         }
-    }
-    else {
+    } else {
         $scope='global';
     }
 
