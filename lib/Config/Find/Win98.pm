@@ -1,6 +1,6 @@
 package Config::Find::Win98;
 
-our $VERSION = '0.27';
+our $VERSION = '0.28';
 
 use strict;
 use warnings;

@@ -1,9 +1,10 @@
 Revision history for Config::Find.
 
+0.28    2015-04-17
         - documentation updates.
         - fixed error message typo.
         - added POD coverage tests.
-        - acknowledged (my) Barbie's contribution, at Salvador's request. 
+        - acknowledged Barbie's contribution, at Salvador's request. 
         - switched to correct POD encoding.
 
 0.27    2015-04-16

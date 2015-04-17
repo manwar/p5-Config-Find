@@ -1,6 +1,6 @@
 package Config::Find::Win7;
 
-our $VERSION = '0.27';
+our $VERSION = '0.28';
 
 use strict;
 use warnings;
