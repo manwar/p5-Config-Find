@@ -42,7 +42,7 @@ BEGIN {
             require Config::Find::Win7;
             @ISA=qw(Config::Find::Win7);
         } else {
-            croak "Unknow MSWin32 OS '$OS'";
+            croak "Unknown MSWin32 OS '$OS'";
         }
     } else {
         require Config::Find::Unix;
@@ -243,17 +243,12 @@ copies a configuration file to a convenient place.
 
 =back
 
-=head2 EXPORT
-
-None, this module has an OO interface.
-
 =head1 BUGS
 
 Some Win32 OSs are not completely implemented and default to inferior
 modes, but hey, this is a work in progress!!!
 
-Contributions, bug reports, feedback and any kind of comments are
-welcome.
+Contributions, bug reports, feedback and any kind of comments are welcome.
 
 =head1 SEE ALSO
 
