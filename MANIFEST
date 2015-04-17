@@ -1,6 +1,6 @@
 Changes
-lib/Config/Find/Any.pm
 lib/Config/Find.pm
+lib/Config/Find/Any.pm
 lib/Config/Find/Unix.pm
 lib/Config/Find/Where.pm
 lib/Config/Find/Win2k.pm
@@ -20,6 +20,7 @@ META.yml
 README
 t/01load.t
 t/90podtest.t
+t/91podcover.t
 t/94metatest.t
 t/95changedate.t
 t/96metatest.t
