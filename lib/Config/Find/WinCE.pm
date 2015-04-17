@@ -13,7 +13,7 @@ our @ISA = qw(Config::Find::WinAny);
 
 __END__
 
-=encoding utf-8
+=encoding latin1
 
 =head1 NAME
 

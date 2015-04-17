@@ -116,7 +116,7 @@ sub parse_opts {
 
 __END__
 
-=encoding utf-8
+=encoding latin1
 
 =head1 NAME
 
