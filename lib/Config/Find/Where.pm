@@ -268,11 +268,12 @@ creates directory C<$dir> and any needed parents
 
 recursively creates all the non existant parent dirs for C<$file>.
 
+=item Config::Find::Where-E<gt>helper_path($file, %opts)
+
+searches for a script, based on the directories given in %opts, which are the
+same as bin_dir() method.
+
 =back
-
-=head2 EXPORT
-
-None, this module has an OO interface.
 
 =head1 BUGS
 

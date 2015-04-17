@@ -1,5 +1,7 @@
 Revision history for Config::Find.
 
+        - documentation updates.
+
 0.27    2015-04-16
         - added POD UTF8 encoding directives. (RT#78944)
         - fixed minor typos. (RT#82001)

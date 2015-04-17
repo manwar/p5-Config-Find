@@ -10,6 +10,8 @@ use File::Spec;
 use File::Which;
 use IO::File;
 
+# private methods
+
 sub _find {
     my ($class, $write, $global, @names)=@_;
     
@@ -73,6 +75,20 @@ sub _temp_dir {
         croak "scope '$scope' is not valid for temp_dir method";
     }
 }
+
+# public methods, to be overridden
+
+sub look_for_file {
+    my $class=shift;
+    die "unimplemented virtual method $class->look_for_file() called";
+}
+
+sub look_for_dir_file {
+    my $class=shift;
+    die "unimplemented virtual method $class->look_for_dir_file() called";
+}
+
+# public methods, inherited by sub-classes
 
 sub guess_full_script_name {
     my $path = (File::Spec->splitpath($0))[1];
@@ -145,16 +161,6 @@ sub create_dir {
     $dir;
 }
 
-sub look_for_file {
-    my $class=shift;
-    die "unimplemented virtual method $class->look_for_file() called";
-}
-
-sub look_for_dir_file {
-    my $class=shift;
-    die "unimplemented virtual method $class->look_for_dir_file() called";
-}
-
 sub my_catfile {
     my $class=shift;
     pop @_ unless defined $_[-1];
@@ -195,7 +201,10 @@ This module implements basic methods for L<Config::Find>.
 =head1 DESCRIPTION
 
 Every L<Config::Find> class has to be derived from this one and two
-methods have to be redefined:
+methods have to be redefined, while the remainder can be utilised by the
+class as required.
+
+=head2 OVERRIDE METHODS
 
 =over 4
 
@@ -205,9 +214,33 @@ methods have to be redefined:
 
 =back
 
-=head2 EXPORT
+=head2 CLASS METHODS
 
-None.
+=over 4
+
+=item $class->guess_full_script_name($file)
+
+=item $class->guess_script_name($file)
+
+=item $class->guess_script_dir($file)
+
+=item $class->is_one_liner($file)
+
+=item $class->add_extension($name, $extension)
+
+=item $class->create_parent_dir($file)
+
+=item $class->parent_dir($dir)
+
+=item $class->create_dir($dir)
+
+=item $class->my_catfile($path,$to,$file,...)
+
+=item $class->my_catdir($path,$to,$dir,...)
+
+=item $class->my_getlogin()
+
+=back
 
 =head1 SEE ALSO
 

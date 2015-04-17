@@ -239,10 +239,6 @@ used, the order is somewhat different:
 
 (also affected by C<$ENV{${name}_HOME}>)
 
-=head2 EXPORT
-
-None.
-
 =head1 SEE ALSO
 
 L<Config::Find>, L<Config::Find::Any>.
