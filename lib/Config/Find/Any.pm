@@ -26,7 +26,7 @@ sub _find {
         return $fn if defined $fn;
     }
 
-    return;
+    return undef;
 }
 
 sub _open {
