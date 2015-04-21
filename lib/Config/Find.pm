@@ -42,7 +42,10 @@ BEGIN {
             require Config::Find::Win7;
             @ISA=qw(Config::Find::Win7);
         } else {
-            croak "Unknown MSWin32 OS '$OS'";
+            # default to WinAny, and separate exceptions
+            require Config::Find::WinAny;
+            @ISA=qw(Config::Find::WinAny);
+            #croak "Unknown MSWin32 OS '$OS'";
         }
     } else {
         require Config::Find::Unix;
