@@ -19,8 +19,12 @@ META.json
 META.yml
 README
 t/01load.t
+t/10find.t
 t/90podtest.t
 t/91podcover.t
 t/94metatest.t
 t/95changedate.t
 t/96metatest.t
+t/data/.test1
+t/data/.test2
+t/data/.test3

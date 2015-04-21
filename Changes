@@ -2,6 +2,7 @@ Revision history for Config::Find.
 
         - Config::Find::Any::_find must return undef when file not found. 
           PBP does not apply.
+        - added initial test script for find() method.
 
 0.28    2015-04-17
         - documentation updates.
