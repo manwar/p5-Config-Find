@@ -4,6 +4,7 @@ Revision history for Config::Find.
           PBP does not apply.
         - added initial test script for find() method.
         - default to WinAny for Windows OSes, and separate exceptions.
+        - report versions when testing.
 
 0.28    2015-04-17
         - documentation updates.
