@@ -1,6 +1,6 @@
 package Config::Find::WinCE;
 
-our $VERSION = '0.28';
+our $VERSION = '0.29';
 
 use strict;
 use warnings;

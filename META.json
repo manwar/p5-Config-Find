@@ -1,6 +1,6 @@
 {
     "name" : "Config-Find",
-    "version": "0.28",
+    "version": "0.29",
     "abstract": "Find configuration files in the native OS fashion",
     "author": [
       "Salvador Fandino <sfandino@yahoo.com>"
@@ -44,59 +44,59 @@
     "provides": {
         "Config::Find": {
             "file": "lib/Config/Find.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Any": {
             "file": "lib/Config/Find/Any.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Unix": {
             "file": "lib/Config/Find/Unix.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Where": {
             "file": "lib/Config/Find/Where.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Win2k": {
             "file": "lib/Config/Find/Win2k.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Win2k3": {
             "file": "lib/Config/Find/Win2k3.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Win7": {
             "file": "lib/Config/Find/Win7.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Win95": {
             "file": "lib/Config/Find/Win95.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::Win98": {
             "file": "lib/Config/Find/Win98.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::WinAny": {
             "file": "lib/Config/Find/WinAny.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::WinCE": {
             "file": "lib/Config/Find/WinCE.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::WinME": {
             "file": "lib/Config/Find/WinME.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::WinNT": {
             "file": "lib/Config/Find/WinNT.pm",
-            "version": "0.28"
+            "version": "0.29"
         },
         "Config::Find::WinXP": {
             "file": "lib/Config/Find/WinXP.pm",
-            "version": "0.28"
+            "version": "0.29"
         }
     },
     "no_index": {
