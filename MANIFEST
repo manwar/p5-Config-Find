@@ -28,3 +28,6 @@ t/96metatest.t
 t/data/.test1
 t/data/.test2
 t/data/.test3
+t/data/test1.cfg
+t/data/test2.cfg
+t/data/test3.cfg
