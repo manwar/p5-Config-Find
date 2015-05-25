@@ -1,5 +1,9 @@
 Revision history for Config::Find.
 
+0.30    2015-05-25
+        - Fix testing on Windows (bug report and patch by Alexandr
+          Ciornii)
+
 0.29    2015-04-21
         - Config::Find::Any::_find must return undef when file not found. 
           PBP does not apply.

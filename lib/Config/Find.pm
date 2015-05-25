@@ -1,6 +1,6 @@
 package Config::Find;
 
-our $VERSION = '0.29';
+our $VERSION = '0.30';
 
 use strict;
 use warnings;
@@ -13,7 +13,7 @@ BEGIN {
     if ($^O=~/Win32/) {
         require Win32;
         my $OS = uc Win32::GetOSName();
-        
+
         if ($OS=~/^WIN95/) {
             require Config::Find::Win95;
             @ISA=qw(Config::Find::Win95);
