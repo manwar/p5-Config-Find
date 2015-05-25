@@ -7,7 +7,7 @@ use Test::More tests => 9;
 
 $ENV{HOME} = 't/data';
 if ($^O eq 'MSWin32') {
-  no warnings 'redefine';
+  no warnings qw(redefine once);
   *Config::Find::WinAny::app_user_dir = sub {
      return 't/data';
   }
