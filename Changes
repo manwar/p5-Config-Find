@@ -1,5 +1,10 @@
 Revision history for Config::Find.
 
+0.31    2015-05-26
+        - Fix tests for meta files
+        - Generate META.(yml|json) on the fly when the dist is built
+        - Several doc fixes, remove non-ASCII characters
+
 0.30    2015-05-25
         - Fix testing on Windows (bug report and patch by Alexandr
           Ciornii)
