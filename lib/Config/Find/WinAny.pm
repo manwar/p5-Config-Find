@@ -1,7 +1,5 @@
 package Config::Find::WinAny;
 
-our $VERSION = '0.29';
-
 use strict;
 use warnings;
 

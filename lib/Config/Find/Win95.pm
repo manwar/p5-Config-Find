@@ -1,7 +1,5 @@
 package Config::Find::Win95;
 
-our $VERSION = '0.29';
-
 use strict;
 use warnings;
 

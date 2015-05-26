@@ -1,7 +1,5 @@
 package Config::Find::Win2k3;
 
-our $VERSION = '0.29';
-
 use strict;
 use warnings;
 
