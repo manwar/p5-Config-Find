@@ -172,7 +172,7 @@ paths to...
   2  $ENV{${name}_HOME}/$name.cfg              [global]
 
 
-When the "several configuration files in one directory" aproach is
+When the "several configuration files in one directory" approach is
 used, the order is something different...
 
   1  ${LOCAL_APPDATA}/$dir/$name.cfg              [user]
@@ -187,11 +187,12 @@ Config::Find until 0.14. New behaviour is to put user application
 configuration data under ${LOCAL_APPDATA} as returned by
 C<Win32::GetFolderPath(CSIDL_LOCAL_APPDATA)> (if this call fails, the
 old approach is used).  Also, global configuration files were stored
-under a new directory placed in the same dir as the script but this is
-unnecesary because windows apps already go in their own directory.
+under a new directory placed in the same directory as the script but
+this is unnecessary because windows apps already go in their own
+directory.
 
 It seems that, sometimes, ${LOCAL_APPDATA} points to the user desktop
-and placing configuration files there would be obviusly wrong. As a
+and placing configuration files there would be obviously wrong. As a
 work around, the module will ignore ${LOCAL_APPDATA} or ${APPDATA} if
 they point to any place below the desktop path.
 
@@ -201,7 +202,7 @@ L<Config::Find>, L<Config::Find::Any>
 
 =head1 AUTHOR
 
-Salvador Fandiño García, E<lt>sfandino@yahoo.comE<gt>
+Salvador FandiE<ntilde>o GarcE<iacute>a, E<lt>sfandino@yahoo.comE<gt>
 
 =head1 CONTRIBUTORS
 
@@ -209,7 +210,7 @@ Barbie, E<lt>barbie@missbarbell.co.ukE<gt> (some bug fixes and documentation)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2015 by Salvador Fandiño García (sfandino@yahoo.com)
+Copyright 2003-2015 by Salvador FandiE<ntilde>o GarcE<iacute>a (sfandino@yahoo.com)
 Copyright 2015 by Barbie (barbie@missbarbell.co.uk)
 
 This library is free software; you can redistribute it and/or modify

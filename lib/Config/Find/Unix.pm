@@ -227,7 +227,7 @@ it does
 
 instead.
 
-When the "several configuration files in one directory" aproach is
+When the "several configuration files in one directory" approach is
 used, the order is somewhat different:
 
   1  ~/.$dir/$name.conf                        [user]
@@ -243,7 +243,7 @@ L<Config::Find>, L<Config::Find::Any>.
 
 =head1 AUTHOR
 
-Salvador Fandiño García, E<lt>sfandino@yahoo.comE<gt>
+Salvador FandiE<ntilde>o GarcE<iacute>a, E<lt>sfandino@yahoo.comE<gt>
 
 =head1 CONTRIBUTORS
 
@@ -251,7 +251,7 @@ Barbie, E<lt>barbie@missbarbell.co.ukE<gt> (some bug fixes and documentation)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2015 by Salvador Fandiño García (sfandino@yahoo.com)
+Copyright 2003-2015 by Salvador FandiE<ntilde>o GarcE<iacute>a (sfandino@yahoo.com)
 Copyright 2015 by Barbie (barbie@missbarbell.co.uk)
 
 This library is free software; you can redistribute it and/or modify

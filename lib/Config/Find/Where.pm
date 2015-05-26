@@ -179,7 +179,7 @@ paths or to search for them.
 
 =item create => 1
 
-creates any unexistant directory in the path returned
+creates any nonexistent directory in the path returned
 
 =back
 
@@ -264,7 +264,8 @@ creates directory C<$dir> and any needed parents
 
 =item Config::Find::Where-E<gt>create_parent_dir($file)
 
-recursively creates all the non existant parent dirs for C<$file>.
+recursively creates all the nonexistent parent directories for
+C<$file>.
 
 =item Config::Find::Where-E<gt>helper_path($file, %opts)
 
@@ -275,8 +276,8 @@ same as bin_dir() method.
 
 =head1 BUGS
 
-Some Win32 OSs are not completely implemented and default to inferior
-modes, but hey, this is a work in progress!!!
+Some Win32 operating systems are not completely implemented and
+default to inferior modes, but hey, this is a work in progress!!!
 
 Contributions, bug reports, feedback and any kind of comments are
 welcome.
@@ -287,7 +288,7 @@ L<Config::Find>
 
 =head1 AUTHOR
 
-Salvador Fandiño García, E<lt>sfandino@yahoo.comE<gt>
+Salvador FandiE<ntilde>o GarcE<iacute>a, E<lt>sfandino@yahoo.comE<gt>
 
 =head1 CONTRIBUTORS
 
@@ -295,7 +296,7 @@ Barbie, E<lt>barbie@missbarbell.co.ukE<gt> (some bug fixes and documentation)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2015 by Salvador Fandiño García (sfandino@yahoo.com)
+Copyright 2003-2015 by Salvador FandiE<ntilde>o GarcE<iacute>a (sfandino@yahoo.com)
 Copyright 2015 by Barbie (barbie@missbarbell.co.uk)
 
 This library is free software; you can redistribute it and/or modify

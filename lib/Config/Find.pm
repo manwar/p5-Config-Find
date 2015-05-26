@@ -192,7 +192,7 @@ the C<file> keyword:
 explicit position of the configuration file.
 
 If undef is passed this entry is ignored and the search for the
-configuration file continues with the apropiate OS rules. This allows
+configuration file continues with the appropriate OS rules. This allows
 for:
 
   use Config::Find;
@@ -218,7 +218,7 @@ user C<~/.profile>.
 
 =item mode => C<read> or C<write>
 
-In C<read> mode already existant file names are returned, in C<write>
+In C<read> mode already existent file names are returned, in C<write>
 mode the file names point to where the configuration file has to be
 stored.
 
@@ -238,7 +238,7 @@ returns the name of the configuration file.
 =item $fh=Config::Find-E<gt>open(%opts)
 
 returns a open file handle for the configuration file. In write mode,
-the file and any nonexistant parent directories are created.
+the file and any nonexistent parent directories are created.
 
 =item $fn=Config::Find-E<gt>install($original, %opts)
 
@@ -248,8 +248,8 @@ copies a configuration file to a convenient place.
 
 =head1 BUGS
 
-Some Win32 OSs are not completely implemented and default to inferior
-modes, but hey, this is a work in progress!!!
+Some Win32 operating systems are not completely implemented and
+default to inferior modes, but hey, this is a work in progress!!!
 
 Contributions, bug reports, feedback and any kind of comments are welcome.
 
@@ -265,7 +265,7 @@ L<Config::Auto> give me the idea for this module.
 
 =head1 AUTHOR
 
-Salvador Fandiño García, E<lt>sfandino@yahoo.comE<gt>
+Salvador FandiE<ntilde>o GarcE<iacute>a, E<lt>sfandino@yahoo.comE<gt>
 
 =head1 CONTRIBUTORS
 
@@ -273,7 +273,7 @@ Barbie, E<lt>barbie@missbarbell.co.ukE<gt> (some bug fixes and documentation)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2015 by Salvador Fandiño García (sfandino@yahoo.com)
+Copyright 2003-2015 by Salvador FandiE<ntilde>o GarcE<iacute>a (sfandino@yahoo.com)
 Copyright 2015 by Barbie (barbie@missbarbell.co.uk)
 
 This library is free software; you can redistribute it and/or modify
