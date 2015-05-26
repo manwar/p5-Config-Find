@@ -15,8 +15,6 @@ lib/Config/Find/WinNT.pm
 lib/Config/Find/WinXP.pm
 Makefile.PL
 MANIFEST
-META.json
-META.yml
 README
 t/01load.t
 t/10find.t
